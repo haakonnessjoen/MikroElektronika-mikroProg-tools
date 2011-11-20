@@ -94,7 +94,7 @@ int main(int argc, char **argv) {
 		goto out;
 	}
 
-	req_volt[2] = 58 + (unsigned char)((volts - 1.8f) * 52.9f); // 5v
+	req_volt[2] = 58 + (unsigned char)((volts - 1.8f) * 52.9f);
 	libusb_bulk_transfer(devh, (2 | LIBUSB_ENDPOINT_OUT), req_volt, sizeof(req_volt), &written, 1000);
 	if (written < sizeof(req_volt)) {
 		fprintf(stderr, "Error writing data to usb device\n");
